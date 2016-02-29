@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 14DUBREUILP
- * Date: 29/02/2016
- * Time: 11:22
- */
+
+function getSejour($bdd)
+{
+    return $bdd->query('select * from sejour order by sejno');
+
+}
+
+
+?>
