@@ -1,12 +1,16 @@
 {
-  "name": "vendor_name/package_name",
-  "description": "description_text",
+  "name": "Thollia/stPaulDuTernay",
+  "description": "Projet SLAM5 sur la réalisation d'un site web avec l'architecture MVC.",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
-      "name": "author's name",
-      "email": "email@example.com"
+      "name": "Thomas JEZEQUEL",
+      "email": "jezequel.tho@gmail.com"
+    },
+    {
+      "name": "Précillia Dubreuil",
+      "email": "precillia.dubreuil@gmail.com"
     }
   ],
   "require": {
