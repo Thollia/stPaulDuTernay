@@ -1,0 +1,19 @@
+{
+  "name": "Thollia/stPaulDuTernay",
+  "description": "Projet SLAM5 sur la réalisation d'un site web avec l'architecture MVC.",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Thomas JEZEQUEL",
+      "email": "jezequel.tho@gmail.com"
+    },
+    {
+      "name": "Précillia Dubreuil",
+      "email": "precillia.dubreuil@gmail.com"
+    }
+  ],
+  "require": {
+    "silex/silex": "1.3.x-dev"
+  }
+}
