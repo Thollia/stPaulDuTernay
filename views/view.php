@@ -52,10 +52,10 @@
             <?php
             foreach ($sejours as $sejour): ?>
                 <sejour>
-                    <h2><p><?php echo $sejour['SEJINTITULE'] ?></p></h2>
-                    <?php echo $sejour['SEJMONTANTMBI'].'€' ?><BR/>
-                    <?php echo 'A partir du '.$sejour['SEJDTEDEB'] ?>
-                    <?php echo $sejour['SEJDUREE'].' nuits' ?>
+                    <h2><p><?php $sejour->getIntitule() ?></p></h2>
+                    <?php echo $sejour->getMontantMBI().'€' ?><BR/>
+                    <?php echo 'A partir du '.$sejour->getDateDebut() ?>
+                    <?php echo $sejour->getDuree().' nuits' ?>
                 </sejour>
             <?php endforeach ?>
 
