@@ -3,69 +3,89 @@
 
 <head>
     <meta charset="utf-8" />
+    <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link href="../web/css/styly.css" rel="stylesheet" />
     <title>SAINT PAUL DU TERRAY</title>
 </head>
 
-<body class="body">
+<body>
 
-<main class="main">
+<main>
 
-    <header-null class="header-null">
-        <header class="header">
-            <h1>SAINT PAUL DU TERRAY</a></h1>
-            <menu-null class="menu-null">
-                <div class="menu">
-                    <a href="#" class="menu_link">Index</a>
-                    <a href="#" class="menu_link">Manifestation</a>
-                    <a href="#" class="menu_link">Facturation</a>
-                    <a href="#" class="menu_link">Contact</a>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SAINT PAUL DU TERRAY</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Manifestation<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Facturation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-sm-6">
+                    <h2>Madame, Monsieur,</h2>
+                    <p>
+                        Votre enfant va partir durant l'année scolaire en classe de découverte.
+                        <br />Une participation financière par enfant va prochainement vous être demandée.
+                        <br /><br />Cette année le conseil municipal a décidé d'instaurer trois types de réductions
+                        et un plafonnement à 100 Euros par enfant.
+                    </p>
+                    <br />
+                    <ul>
+                        <li>Réduction de 10% si le Quotient Familial est inférieur à 500 Euros</li>
+                        <li>Réduction de 20% pour famille de 2 enfants</li>
+                        <li>Réduction de 40% pour famille de 3 enfants ou plus</li>
+                    </ul>
                 </div>
-            </menu-null>
-        </header>
-    </header-null>
 
-    <noscreen/>
-
-    <left class="left">
-        <h2>Madame, Monsieur,</h2>
-        <p>
-            Votre enfant va partir durant l'année scolaire en classe de découverte.
-            <br />Une participation financière par enfant va prochainement vous être demandée.
-            <br /><br />Cette année le conseil municipal a décidé d'instaurer trois types de réductions
-            et un plafonnement à 100 Euros par enfant.
-        </p>
-        <br />
-        <ul>
-            <li>Réduction de 10% si le Quotient Familial est inférieur à 500 Euros</li>
-            <li>Réduction de 20% pour famille de 2 enfants</li>
-            <li>Réduction de 40% pour famille de 3 enfants ou plus</li>
-        </ul>
-    </left>
-
-    <noscreen/>
-
-    <right class="right">
-        <h2>Liste des séjours prévus </h2>
-        <fieldset>
-
-            {% for sejour in sejours %}
-            <sejour>
-                <h2><p>{{ sejour.intitule }} </p></h2>
-                {{ sejour.montantmbi }} € <br/>
-                 A partir du : {{ sejour.datedebut }}
-               / {{ sejour.duree }} nuits
-            </sejour>
-            {% endfor %}
-
-        </fieldset>
-    </right>
+                <div class="col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading text-center">
+                            <h2 class="panel-title">Liste des séjours prévus </h2>
+                        </div>
+                        <div class="panel-body text-center">
+                            {% for sejour in sejours %}
+                                <sejour>
+                                    <h4 class="text-danger"><p>{{ sejour.intitule }} </p></h4>
+                                    {{ sejour.montantmbi }} € <br/>
+                                    A partir du : {{ sejour.datedebut }}
+                                    / {{ sejour.duree }} nuits
+                                    <hr>
+                                </sejour>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <footer class="footer">
-    Copyright &copy; 2016 Saint paul du terray
+    <div class="container text-center">
+        <p class="text-muted">Copyright &copy; 2016 Précillia Jézéquel - Thomas Jézéquel</p>
+    </div>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 
