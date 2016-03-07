@@ -39,40 +39,21 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="col-sm-6">
-                    <h2>Madame, Monsieur,</h2>
-                    <p>
-                        Votre enfant va partir durant l'année scolaire en classe de découverte.
-                        <br />Une participation financière par enfant va prochainement vous être demandée.
-                        <br /><br />Cette année le conseil municipal a décidé d'instaurer trois types de réductions
-                        et un plafonnement à 100 Euros par enfant.
-                    </p>
-                    <br />
-                    <ul>
-                        <li>Réduction de 10% si le Quotient Familial est inférieur à 500 Euros</li>
-                        <li>Réduction de 20% pour famille de 2 enfants</li>
-                        <li>Réduction de 40% pour famille de 3 enfants ou plus</li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center">
-                            <h2 class="panel-title">Liste des séjours prévus </h2>
-                        </div>
-                        <div class="panel-body text-center">
-                            {% for sejour in sejours %}
-                                <sejour>
-                                    <h4 class="text-danger"><p>{{ sejour.intitule }} </p></h4>
-                                    {{ sejour.montantmbi }} € <br/>
-                                    A partir du : {{ sejour.datedebut }}
-                                    / {{ sejour.duree }} nuits
-                                    <hr>
-                                </sejour>
-                            {% endfor %}
-                        </div>
+                <form action="">
+                    <div class="form-group">
+                        <label for="nom">Nom - Prenom : </label>
+                        <input id="nom" type="text" class="form-control"/>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="message">Message : </label>
+                        <textarea style="resize: vertical" class="form-control">
+
+                        </textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-success btn-block btn-lg">Envoyer</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

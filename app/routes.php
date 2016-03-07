@@ -5,3 +5,7 @@ $app->get('/', function() use ($app) {
     return $app['twig']->render('index.html.twig', array('sejours' => $sejours));
 
 });
+
+$app->get('/contact', function() use ($app){
+    return $app['twig']->render('contact.html.twig');
+});
