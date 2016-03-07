@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7fb88d6439e1f2d6aada088f1bb2a259",
-    "content-hash": "c709c20f89aea27f1e8e1d868b8ef773",
+    "hash": "4eb657d86c9caf809f57e7061ab93851",
+    "content-hash": "56eb09c8d35ba38903d2abf610bf6625",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1120,6 +1120,50 @@
                 "url"
             ],
             "time": "2016-02-04 13:53:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "1.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "97ade38d5c0b095f8ed9fadb61f71ab79f13d7af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/97ade38d5c0b095f8ed9fadb61f71ab79f13d7af",
+                "reference": "97ade38d5c0b095f8ed9fadb61f71ab79f13d7af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2012-04-11 09:00:38"
         }
     ],
     "packages-dev": [],
