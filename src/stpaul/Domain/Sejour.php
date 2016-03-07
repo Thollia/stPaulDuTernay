@@ -9,21 +9,34 @@
 namespace stpaul\Domain;
 
 
-class Sejour
-{
-    private $numero = "";
-    private $intitule = "";
-    private $montantMBI = "";
-    private $dateDebut = "";
-    private $duree = "";
+/**
+ * Class Sejour
+ * @package stpaul\Domain
+ */
+class Sejour {
 
     /**
-     * Sejour constructor.
-     * @param $intitule
-     * @param $montantMBI
-     * @param $dateDebut
-     * @param $duree
+     * @var string
      */
+    private $numero = "";
+    /**
+     * @var string
+     */
+    private $intitule = "";
+    /**
+     * @var string
+     */
+    private $montantMBI = "";
+    /**
+     * @var string
+     */
+    private $dateDebut = "";
+    /**
+     * @var string
+     */
+    private $duree = "";
+
+
     public function __construct()
     {
 
