@@ -1,8 +1,7 @@
 <?php
 
-$app->get('/', function(){
-   require '../src/model.php';
-   $sejours = getSejour();
+$app->get('/', function() use ($app) {
+    $sejours = $app['dao.sejour']->findAll();
 
    ob_start();
    require '../views/view.php';
