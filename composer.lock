@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4eb657d86c9caf809f57e7061ab93851",
-    "content-hash": "56eb09c8d35ba38903d2abf610bf6625",
+    "hash": "7e2261456b6908f060e26586ba940e30",
+    "content-hash": "8a4096774bd3bd4632d4e4bae7b208de",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1122,6 +1122,57 @@
             "time": "2016-02-04 13:53:00"
         },
         {
+            "name": "twbs/bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "0a6f80a47959d36e912438826e70af95d2a6cc80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0a6f80a47959d36e912438826e70af95d2a6cc80",
+                "reference": "0a6f80a47959d36e912438826e70af95d2a6cc80",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2016-03-07 05:34:45"
+        },
+        {
             "name": "twig/twig",
             "version": "1.6.5",
             "source": {
@@ -1171,7 +1222,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "silex/silex": 20,
-        "doctrine/dbal": 20
+        "doctrine/dbal": 20,
+        "twbs/bootstrap": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
