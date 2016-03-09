@@ -16,7 +16,8 @@ use stpaul\Domain\Sejour;
  * @package stpaul\DAO
  */
 class SejourDAO {
-/** @var Connection  */
+
+    /** @var Connection  */
     private $db;
 
     /**
