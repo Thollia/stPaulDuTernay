@@ -134,7 +134,7 @@ class Sejour {
         $dateDebut = new \DateTime($this->getDateDebut());
         $dateDebut->add(new \DateInterval('P'.$this->getDuree().'D')) ;
 
-        return $dateDebut->format('Y-m-d');
+        return $dateDebut->format('d/m/Y');
     }
 
     /**
@@ -142,10 +142,10 @@ class Sejour {
      * @param $pDte : date a formater
      * @return mixed
      */
-    public function getSejDteFormatFR($pDte)
+    public function getSejDteFormatFR()
     {
-        $date = new \DateTime($pDte);
-        return $date->format('d-m-Y');
+        $date = new \DateTime($this->getDateDebut());
+        return $date->format('d/m/Y');
     }
 
 }

@@ -29,7 +29,7 @@
                                 <sejour>
                                     <h4 class="text-danger"><p>{{ sejour.intitule }} </p></h4>
                                     {{ sejour.montantmbi }} € <br/>
-                                    A partir du : {{ sejour.datedebut }}
+                                    A partir du : {{ sejour.getSejDteFormatFR }} au {{ sejour.getSejDteFin }}
                                     / {{ sejour.duree }} nuits
                                     <hr>
                                 </sejour>
