@@ -25,6 +25,14 @@ $app->get('/login', function(Request $request) use ($app) {
     ));
 })->bind('login');
 
-$app->get('/facturation', function() use ($app) {
-    return "Facturation";
+$app->match('/facturation', function(Request $request) use ($app) {
+    $simulFormView = null;
+    $simulation = new \stpaul\IHM\Simulation();
+    $simulForm = $app['form.factory']->create(new \stpaul\Form\Type\SimulationType(), $simulation);
+    $simulForm->handleRequest($request);
+    if ($simulForm->isSubmitted() && $simulForm->isValid()) {
+
+    }
+    $simulFormView = $simulForm->createView();
+    $app['twig']->render('simul.html.twig', array('simulationForm' => $simulFormView));
 });

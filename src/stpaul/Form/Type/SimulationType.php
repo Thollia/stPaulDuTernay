@@ -8,7 +8,24 @@
 
 namespace stpaul\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
 
-class SimulationType {
+
+class SimulationType extends AbstractType{
+
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('nomFamille', 'text');
+        $builder->add('nombreEnfant', 'number');
+        $builder->add('quotientFamilial', 'number');
+        $builder->add('$nombreEnfantPartant', 'number');
+        $builder->add('valider', 'submit');
+    }
+
+    public function getName()
+    {
+        return 'simulation';
+    }
 
 }

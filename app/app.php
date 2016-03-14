@@ -25,6 +25,8 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
     ),
 ));
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
 
 $app['dao.sejour'] = $app->share(function ($app) {
     return new stpaul\DAO\SejourDAO($app['db']);

@@ -15,6 +15,7 @@ class Simulation {
     private $nombreEnfant;
     private $quotientFamilial;
     private $infoSejour;
+    private $nombreEnfantPartant;
 
     private $reducQuotientFamilial;
     private $reducNombreEnfant;
@@ -25,12 +26,9 @@ class Simulation {
     private $netAPayer;
     private $totalDepartMultiple;
 
-    function __construct($nomFamille, $nombreEnfant, $quotientFamilial, $infoSejour)
+    function __construct()
     {
-        $this->nomFamille = $nomFamille;
-        $this->nombreEnfant = $nombreEnfant;
-        $this->quotientFamilial = $quotientFamilial;
-        $this->infoSejour = $infoSejour;
+
     }
 
     /**
