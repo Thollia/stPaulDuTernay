@@ -22,7 +22,6 @@ class SimulationType extends AbstractType{
     public function __construct($values)
     {
         $this->setCustomValues($values);
-        print_r($values);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
