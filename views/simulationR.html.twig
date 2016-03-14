@@ -42,7 +42,7 @@
                     <p><strong> Net a payer apres plafonnement : {{ simulation.netAPayer }} € </strong></p>
 
 
-                    {% if {{ simulation.nombreEnfantPartant }} > 1 }} %}
+                    {% if {{ simulation.nombreEnfantPartant }} > 1 %}
                         <p> Remarque : vus devrez verser au total {{ simulation.netAPayer }} * {{ simulation.nombreEnfantPartant }} = {{ simulation.totalDepartMultiple }}</p>
                     {% endif %}
 
