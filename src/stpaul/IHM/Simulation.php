@@ -223,7 +223,23 @@ class Simulation {
         $this->totalDepartMultiple = $totalDepartMultiple;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNombreEnfantPartant()
+    {
+        return $this->nombreEnfantPartant;
+    }
 
+    /**
+     * @param mixed $nombreEnfantPartant
+     */
+    public function setNombreEnfantPartant($nombreEnfantPartant)
+    {
+        $this->nombreEnfantPartant = $nombreEnfantPartant;
+    }
+
+    
 
 
 }

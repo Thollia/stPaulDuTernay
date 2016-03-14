@@ -19,7 +19,7 @@ class SimulationType extends AbstractType{
         $builder->add('nomFamille', 'text');
         $builder->add('nombreEnfant', 'number');
         $builder->add('quotientFamilial', 'number');
-        $builder->add('$nombreEnfantPartant', 'number');
+        $builder->add('nombreEnfantPartant', 'number');
         $builder->add('valider', 'submit');
     }
 
