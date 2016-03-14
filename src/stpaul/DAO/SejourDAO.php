@@ -42,6 +42,17 @@ class SejourDAO {
         return $sejours;
     }
 
+    public function findAllDict(){
+        $sql = "select * from sejour order by sejno";
+        $result = $this->db->fetchAll($sql);
+
+        $sejours = [];
+        foreach ($result as $row) {
+            $sejours[$row['SEJNO']] = $row["SEJINTITULE"];
+        }
+        return $sejours;
+    }
+
     /**
      * @param array $row
      * @return Sejour

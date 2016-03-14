@@ -1,6 +1,7 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
+use \stpaul\Form\Type\SimulationType;
 
 $app->get('/', function() use ($app) {
     $sejours = $app['dao.sejour']->findAll();
@@ -28,11 +29,11 @@ $app->get('/login', function(Request $request) use ($app) {
 $app->match('/facturation', function(Request $request) use ($app) {
     $simulFormView = null;
     $simulation = new \stpaul\IHM\Simulation();
-    $simulForm = $app['form.factory']->create(new \stpaul\Form\Type\SimulationType(), $simulation);
+    $simulForm = $app['form.factory']->create(new SimulationType($app['dao.sejour']->findAllDict()), $simulation);
     $simulForm->handleRequest($request);
     if ($simulForm->isSubmitted() && $simulForm->isValid()) {
-
+        return $app['twig']->render('simulationR.html.twig');
     }
     $simulFormView = $simulForm->createView();
-    $app['twig']->render('simul.html.twig', array('simulationForm' => $simulFormView));
+    return $app['twig']->render('simulation.html.twig', array('simulationForm' => $simulFormView));
 });

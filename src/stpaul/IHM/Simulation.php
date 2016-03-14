@@ -239,7 +239,7 @@ class Simulation {
         $this->nombreEnfantPartant = $nombreEnfantPartant;
     }
 
-    
+
 
 
 }
