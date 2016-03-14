@@ -3,7 +3,53 @@
 
     {% block content %}
 
-        
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h1> Simulation de coût d'un voyage pour un enfant : </h1>
+
+                    <p> Famille {{ simulation.nomFamille }} avec {{ simulation.nombreEnfant }} enfant(s) et un quotient familial de {{ simualtion.quotientFamilial }} €.
+                    <br/> {{ simulation.nombreEnfantPartant }} enfant(s) partant en {{ simulation.infoSejour.getIntitule }} : </p>
+
+
+                    <p> Prix brut du sejour individuel : {{ simulation.infoSejour.getMontantMBI }}
+                    <br/> {% if {{ simulation.quotientFamilial }} < 500 %}
+                                <p> Reduction sur Quotient Familial 10% : {{ simulation.reducQuotientFamilial }} € </p>
+                          {% else %}
+                                <p> Aucune Reduction sur Quotient Familial </p>
+                          {% endif %}
+
+                    <br/> {% if {{ simulation.nombreEnfant }} == 2 %}
+                                <p> Reduction famille de 2 enfants 20% : {{ simulation.reducNombreEnfant }} € </p>
+                          {% elseif {{ simulation.nombreEnfant }} >= 3 %}
+                                 <p> Reduction famille de {{ simulation.nombreEnfant }} enfants 40% : {{ simulation.reducNombreEnfant }} € </p>
+                          {% else %}
+                                 <p> Aucune Reduction Famille </p>
+                          {% endif %} </p>
+
+                    <p> Sous Total : {{ simulation.sousTotal }} € </p>
+
+
+                    <p> {% if {{ simulation.nombreEnfantPartant }} > 1 %}
+                        <p> Reduction depart de plusieurs enfants 10% : {{ simualtion.reducDepartPlsEnfant }} € </p>
+                        {% else %}
+                        <p> Pas d'enfants partant </p>
+                        {% endif %} </p>
+
+                    <p> Prix après reduction : {{ simulation.prixApresReduction }} € </p>
+
+                    <p><strong> Net a payer apres plafonnement : {{ simulation.netAPayer }} € </strong></p>
+
+
+                    {% if {{ simulation.nombreEnfantPartant }} > 1 }} %}
+                        <p> Remarque : vus devrez verser au total {{ simulation.netAPayer }} * {{ simulation.nombreEnfantPartant }} = {{ simulation.totalDepartMultiple }}</p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+
 
 
     {% endblock %}
