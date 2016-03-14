@@ -34,9 +34,9 @@ class SejourTest extends \PHPUnit_Framework_TestCase {
 
     public function testDteFin()
     {
-        $this->setUp(1, 'Classe de mer', 170, '2016-05-02', 10);
+        $this->setUp();
 
-        $resultatAttendu = '2016-05-12';
+        $resultatAttendu = '12/05/2016';
         $resultatObserve = $this->object->getSejDteFin();
 
         $this->assertEquals($resultatAttendu, $resultatObserve);
@@ -46,10 +46,10 @@ class SejourTest extends \PHPUnit_Framework_TestCase {
 
     public function testGetSejDteFormatFR() {
 
-        $this->setUp(1, 'Classe de mer', 170, '2016-05-02', 10);
+        $this->setUp();
 
-        $resultatAttendu = '04-11-2015';
-        $resultatObserve = $this->object->getSejDteFormatFR('2015-11-04');
+        $resultatAttendu = '02/05/2016';
+        $resultatObserve = $this->object->getSejDteFormatFR();
 
         $this->assertEquals($resultatAttendu, $resultatObserve);
 
