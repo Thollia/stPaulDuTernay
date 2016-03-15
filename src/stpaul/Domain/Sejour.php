@@ -123,4 +123,30 @@ class Sejour {
     {
         $this->duree = $duree;
     }
+
+
+    /**
+     * Retourne la date de fin de sejour
+     * @return mixed
+     */
+    public function getSejDteFin()
+    {
+        $dateDebut = new \DateTime($this->getDateDebut());
+        $dateDebut->add(new \DateInterval('P'.$this->getDuree().'D')) ;
+
+        return $dateDebut->format('d/m/Y');
+    }
+
+    /**
+     * Formatage jj-mm-aaaa
+     * @param $pDte : date a formater
+     * @return mixed
+     */
+    public function getSejDteFormatFR()
+    {
+        $date = new \DateTime($this->getDateDebut());
+        return $date->format('d/m/Y');
+    }
+
+
 }

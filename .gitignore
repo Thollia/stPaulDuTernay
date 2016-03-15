@@ -10,3 +10,5 @@
 .idea/*
 vendor
 vendor/*
+.sonar
+sonar-project.properties
