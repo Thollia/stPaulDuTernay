@@ -14,15 +14,15 @@
 
 
                     <p> Prix brut du sejour individuel : {{ simulation.infoSejour.getMontantMBI }}
-                    <br/> {% if {{ simulation.quotientFamilial }} < 500 %}
+                    <br/> {% if  simulation.quotientFamilial  < 500 %}
                                 <p> Reduction sur Quotient Familial 10% : {{ simulation.reducQuotientFamilial }} € </p>
                           {% else %}
                                 <p> Aucune Reduction sur Quotient Familial </p>
                           {% endif %}
 
-                    <br/> {% if {{ simulation.nombreEnfant }} == 2 %}
+                    <br/> {% if simulation.nombreEnfant == 2 %}
                                 <p> Reduction famille de 2 enfants 20% : {{ simulation.reducNombreEnfant }} € </p>
-                          {% elseif {{ simulation.nombreEnfant }} >= 3 %}
+                          {% elseif simulation.nombreEnfant >= 3 %}
                                  <p> Reduction famille de {{ simulation.nombreEnfant }} enfants 40% : {{ simulation.reducNombreEnfant }} € </p>
                           {% else %}
                                  <p> Aucune Reduction Famille </p>
@@ -31,7 +31,7 @@
                     <p> Sous Total : {{ simulation.sousTotal }} € </p>
 
 
-                    <p> {% if {{ simulation.nombreEnfantPartant }} > 1 %}
+                    <p> {% if simulation.nombreEnfantPartant > 1 %}
                         <p> Reduction depart de plusieurs enfants 10% : {{ simualtion.reducDepartPlsEnfant }} € </p>
                         {% else %}
                         <p> Pas d'enfants partant </p>
@@ -42,7 +42,7 @@
                     <p><strong> Net a payer apres plafonnement : {{ simulation.netAPayer }} € </strong></p>
 
 
-                    {% if {{ simulation.nombreEnfantPartant }} > 1 %}
+                    {% if simulation.nombreEnfantPartant > 1 %}
                         <p> Remarque : vus devrez verser au total {{ simulation.netAPayer }} * {{ simulation.nombreEnfantPartant }} = {{ simulation.totalDepartMultiple }}</p>
                     {% endif %}
 
