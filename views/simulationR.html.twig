@@ -23,7 +23,7 @@
                     <br/> {% if simulation.nombreEnfant == 2 %}
                                 <p> Reduction famille de 2 enfants 20% : {{ simulation.reducNombreEnfant }} € </p>
                           {% elseif simulation.nombreEnfant >= 3 %}
-                                 <p> Reduction famille de {{ simulation.nombreEnfant }} enfants 40% : {{ simulation.reducNombreEnfant }} € </p>
+                                 <p> Reduction famille de {{ simulation.nombreEnfant }} enfants et plus 40% : {{ simulation.reducNombreEnfant }} € </p>
                           {% else %}
                                  <p> Aucune Reduction Famille </p>
                           {% endif %} </p>
