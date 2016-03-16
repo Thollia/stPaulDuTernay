@@ -253,6 +253,39 @@ class Simulation {
         $this->setPrixApresReduction($this->getSousTotal()-$this->getReducDepartPlsEnfant());
     }
 
+    private function calculReducQuotientFamilial()
+    {
+       if ($this->getQuotientFamilial() < 500){
+           $this->setReducQuotientFamilial(0.1*$this->getInfoSejour()->getMontantMBI());
+       } else {
+           $this->setReducQuotientFamilial(0);
+       }
+    }
 
 
+    private function calculSousTotal()
+    {
+       $this->setSousTotal($this->getInfoSejour()->getMontantMBI() - ($this->getReducQuotientFamilial() + $this->getReducNombreEnfant()));
+    }
+
+
+    private function calculDepartPlsEnfants()
+    {
+        if($this->getNombreEnfantPartant() > 1 ) {
+            $this->setReducDepartPlsEnfant(0.1*$this->getSousTotal());
+        } else{
+            $this->setReducDepartPlsEnfant(0);
+        }
+
+    }
+
+
+    private function calculNetAPayer ()
+    {
+        if($this->getPrixApresReduction() > 100 ){
+            $this->setNetAPayer(100);
+        } else {
+            $this->setNetAPayer($this->getPrixApresReduction());
+        }
+    }
 }
