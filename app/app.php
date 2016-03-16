@@ -14,9 +14,12 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
+        'login' => array(
+            'pattern' => '^/login$'
+        ),
         'secured' => array(
             'pattern' => '^/',
-            'anonymous' => true,
+            'anonymous' => false,
             'logout' => true,
             'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
             'users' => $app->share(function () use ($app) {
@@ -25,6 +28,8 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
     ),
 ));
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
 
 $app['dao.sejour'] = $app->share(function ($app) {
     return new stpaul\DAO\SejourDAO($app['db']);

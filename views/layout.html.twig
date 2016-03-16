@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-    <link href="../web/css/styly.css" rel="stylesheet" />
+    <link href="{{ app.request.basepath }}/css/bootstrap.css" rel="stylesheet"/>
+    <link href="{{ app.request.basepath }}/css/styly.css" rel="stylesheet" />
     <title>{% block title %}{% endblock %}</title>
 </head>
 
@@ -57,12 +57,12 @@
 
     <footer class="footer">
         <div class="container text-center">
-            <p class="text-muted">Copyright &copy; 2016 Précillia Jézéquel - Thomas Jézéquel</p>
+            <p class="text-muted">Copyright &copy; 2016 <a href="http://pdubreuil.fr">Précillia Jézéquel</a>-<a href="http://tjezequel.fr"> Thomas Jézéquel</a></p>
         </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
 
 </body>
 

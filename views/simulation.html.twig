@@ -1,0 +1,70 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <h2>Madame, Monsieur,</h2>
+                <p>
+                    Votre enfant va partir durant l'année scolaire en classe de découverte.
+                    <br />Une participation financière par enfant va prochainement vous être demandée.
+                    <br /><br />Cette année le conseil municipal a décidé d'instaurer trois types de réductions
+                    et un plafonnement à 100 Euros par enfant.
+                </p>
+                <br />
+                <ul>
+                    <li>Réduction de 10% si le Quotient Familial est inférieur à 500 Euros</li>
+                    <li>Réduction de 20% pour famille de 2 enfants</li>
+                    <li>Réduction de 40% pour famille de 3 enfants ou plus</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+                {{ form_start(simulationForm) }}
+                <div class="form-group">
+                    {{ form_errors(simulationForm.nomFamille) }}
+                    {{ form_widget(simulationForm.nomFamille ,{ 'attr' : {
+                        'class':'form-control',
+                        'placeholder': 'Nom de Famille'
+                    }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_errors(simulationForm.nombreEnfant) }}
+                    {{ form_widget(simulationForm.nombreEnfant ,{ 'attr' : {
+                        'class':'form-control',
+                        'placeholder': 'Nombre d\'enfants'
+                    }}) }}
+                    </div>
+                <div class="form-group">
+                    {{ form_errors(simulationForm.quotientFamilial) }}
+                    {{ form_widget(simulationForm.quotientFamilial ,{ 'attr' : {
+                        'class':'form-control',
+                        'placeholder': 'Quotient familial'
+                    }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_errors(simulationForm.nombreEnfantPartant) }}
+                    {{ form_widget(simulationForm.nombreEnfantPartant ,{ 'attr' : {
+                        'class':'form-control',
+                        'placeholder': 'Nombre enfant partants'
+                    }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_errors(simulationForm.infoSejour) }}
+                    {{ form_widget(simulationForm.infoSejour ,{ 'attr' : {
+                        'class':'form-control',
+                        'placeholder': 'Nombre enfant partants'
+                    }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(simulationForm.valider ,{ 'attr' : {
+                        'class':'btn btn-success',
+
+                    }}) }}
+                </div>
+                {{ form_end(simulationForm) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
