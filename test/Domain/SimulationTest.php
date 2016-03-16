@@ -15,25 +15,24 @@ use stpaul\IHM\Simulation;
 
 class SimulationTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $simulation1;
-    private $simulation2;
+    /**
+     * @var Simulation
+     */
+    private $simulation;
 
     public function setUp()
     {
         $sejour = new Sejour();
         $sejour->setMontantMBI(500);
-        $this->simulation1 = new Simulation();
-        $this->simulation1->setInfoSejour($sejour);
-        $this->simulation1->setNombreEnfant(2);
-        $this->simulation1->setNombreEnfantPartant(2);
-        $this->simulation1->setQuotientFamilial(450);
-        $this->simulation2 = new Simulation();
-        $this->simulation2->setInfoSejour($sejour);
-        $this->simulation2->setNombreEnfant(4);
-        $this->simulation2->setNombreEnfantPartant(1);
-        $this->simulation2->setQuotientFamilial(550);
+        $this->simulation = new Simulation();
+        $this->simulation->setInfoSejour($sejour);
+    }
 
+    public function build($nbEnf, $nbEnfPart, $QuotientFm){
+        $this->setUp();
+        $this->simulation->setNombreEnfant($nbEnf);
+        $this->simulation->setNombreEnfantPartant($nbEnfPart);
+        $this->simulation->setQuotientFamilial($QuotientFm);
     }
 
     public function tearDown()
@@ -41,36 +40,45 @@ class SimulationTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testReducNbEnfant(){
+    public function testReducNbEnfant2(){
 
-        $this->setUp();
+        $this->build(2,1,450);
 
-        $resultatAttenduSejour1 = 100;
-        $resultatAttenduSejour2 = 200;
+        $resultatAttenduSejour = 100;
 
-        $this->simulation1->calculReducEnfant();
-        $this->simulation2->calculReducEnfant();
+        $this->simulation->calculReducEnfant();
 
-        $this->assertEquals($resultatAttenduSejour1, $this->simulation1->getReducNombreEnfant());
-        $this->assertEquals($resultatAttenduSejour2, $this->simulation2->getReducNombreEnfant());
+        $this->assertEquals($resultatAttenduSejour, $this->simulation->getReducNombreEnfant());
     }
 
-    public function testReducQuotientFamilial(){
+    public function testReducNbEnfant3(){
 
-        $this->setUp();
+        $this->build(3,1,450);
 
-        $resultatAttenduSejour1 = 50;
-        $resultatAttenduSejour2 = 0;
+        $resultatAttenduSejour = 200;
 
-        $this->simulation1->calculReducQuotientFamilial();
-        $this->simulation2->calculReducQuotientFamilial();
+        $this->simulation->calculReducEnfant();
 
-        $this->assertEquals($resultatAttenduSejour1, $this->simulation1->getReducQuotientFamilial());
-        $this->assertEquals($resultatAttenduSejour2, $this->simulation2->getReducQuotientFamilial());
+        $this->assertEquals($resultatAttenduSejour, $this->simulation->getReducNombreEnfant());
+    }
+
+    public function testReducNbEnfant1(){
+
+        $this->build(1,1,450);
+
+        $resultatAttenduSejour = 0;
+
+        $this->simulation->calculReducEnfant();
+
+        $this->assertEquals($resultatAttenduSejour, $this->simulation->getReducNombreEnfant());
+    }
+
+    public function testQuotientFamilialSup500(){
 
     }
 
+    public function testQuotientFamilialInf500(){
 
-
+    }
 
 }

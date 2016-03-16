@@ -253,7 +253,7 @@ class Simulation {
         $this->setPrixApresReduction($this->getSousTotal()-$this->getReducDepartPlsEnfant());
     }
 
-    private function calculReducQuotientFamilial()
+    public function calculReducQuotientFamilial()
     {
        if ($this->getQuotientFamilial() < 500){
            $this->setReducQuotientFamilial(0.1*$this->getInfoSejour()->getMontantMBI());
@@ -262,25 +262,22 @@ class Simulation {
        }
     }
 
-
-    private function calculSousTotal()
+    public function calculSousTotal()
     {
        $this->setSousTotal($this->getInfoSejour()->getMontantMBI() - ($this->getReducQuotientFamilial() + $this->getReducNombreEnfant()));
     }
 
-
-    private function calculDepartPlsEnfants()
+    public function calculDepartPlsEnfants()
     {
         if($this->getNombreEnfantPartant() > 1 ) {
             $this->setReducDepartPlsEnfant(0.1*$this->getSousTotal());
-        } else{
+        } else {
             $this->setReducDepartPlsEnfant(0);
         }
 
     }
 
-
-    private function calculNetAPayer ()
+    public function calculNetAPayer ()
     {
         if($this->getPrixApresReduction() > 100 ){
             $this->setNetAPayer(100);
@@ -288,4 +285,19 @@ class Simulation {
             $this->setNetAPayer($this->getPrixApresReduction());
         }
     }
+
+    public function calculTotalDepartMultiple(){
+        $this->setTotalDepartMultiple($this->getNombreEnfantPartant()*$this->getNetAPayer());
+    }
+
+    public function calculTotal(){
+        $this->calculReducQuotientFamilial();
+        $this->calculReducEnfant();
+        $this->calculSousTotal();
+        $this->calculDepartPlsEnfants();
+        $this->calculPrixApresReduction();
+        $this->calculNetAPayer();
+        $this->calculTotalDepartMultiple();
+    }
+
 }

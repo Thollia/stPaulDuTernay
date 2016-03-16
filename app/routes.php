@@ -33,6 +33,7 @@ $app->match('/facturation', function(Request $request) use ($app) {
     $simulForm->handleRequest($request);
     if ($simulForm->isSubmitted() && $simulForm->isValid()) {
         $simulation->setInfoSejour($app['dao.sejour']->findById($simulation->getInfoSejour()));
+        $simulation->calculTotal();
         return $app['twig']->render('simulationR.html.twig', array('simulation' => $simulation));
     }
     $simulFormView = $simulForm->createView();
