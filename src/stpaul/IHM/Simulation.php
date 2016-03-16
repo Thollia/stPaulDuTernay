@@ -239,6 +239,19 @@ class Simulation {
         $this->nombreEnfantPartant = $nombreEnfantPartant;
     }
 
+    public function calculReducEnfant(){
+        if($this->getNombreEnfant() == 2){
+            $this->setReducNombreEnfant($this->getInfoSejour()->getMontantMBI()*0.2);
+        } else if ($this->getNombreEnfant() >= 3){
+            $this->setReducNombreEnfant($this->getInfoSejour()->getMontantMBI()*0.4);
+        } else {
+            $this->setReducNombreEnfant(0);
+        }
+    }
+
+    public function calculPrixApresReduction(){
+        $this->setPrixApresReduction($this->getSousTotal()-$this->getReducDepartPlsEnfant());
+    }
 
 
 

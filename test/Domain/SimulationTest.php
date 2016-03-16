@@ -8,8 +8,9 @@
 
 namespace stpaul\Domain;
 
+require_once __DIR__.'/../../src/stpaul/Domain/Sejour.php';
+require_once __DIR__.'/../../src/stpaul/IHM/Simulation.php';
 use stpaul\IHM\Simulation;
-use stpaul\Domain\Sejour;
 
 
 class SimulationTest extends \PHPUnit_Framework_TestCase
@@ -37,6 +38,35 @@ class SimulationTest extends \PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
+
+    }
+
+    public function testReducNbEnfant(){
+
+        $this->setUp();
+
+        $resultatAttenduSejour1 = 100;
+        $resultatAttenduSejour2 = 200;
+
+        $this->simulation1->calculReducEnfant();
+        $this->simulation2->calculReducEnfant();
+
+        $this->assertEquals($resultatAttenduSejour1, $this->simulation1->getReducNombreEnfant());
+        $this->assertEquals($resultatAttenduSejour2, $this->simulation2->getReducNombreEnfant());
+    }
+
+    public function testReducQuotientFamilial(){
+
+        $this->setUp();
+
+        $resultatAttenduSejour1 = 50;
+        $resultatAttenduSejour2 = 0;
+
+        $this->simulation1->calculReducQuotientFamilial();
+        $this->simulation2->calculReducQuotientFamilial();
+
+        $this->assertEquals($resultatAttenduSejour1, $this->simulation1->getReducQuotientFamilial());
+        $this->assertEquals($resultatAttenduSejour2, $this->simulation2->getReducQuotientFamilial());
 
     }
 
