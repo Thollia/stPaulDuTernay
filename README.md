@@ -10,3 +10,4 @@ Projet SLAM5 sur la réalisation d'un site web avec l'architecture MVC.
 - V1.5 : Utiliser le moteur de template twig pour la présentation √
 - V1.6 : Intégration Bootsrap √ 
 - V1.7 : Sécurisation du site √
+- V2.0 : Ajout du formulaire de simulation √
