@@ -13,37 +13,38 @@
                     <br/> {{ simulation.nombreEnfantPartant }} enfant(s) partant en {{ simulation.infoSejour.getIntitule }} : </p>
 
 
-                    <p> Prix brut du sejour individuel : {{ simulation.infoSejour.getMontantMBI }}
+                    <br><p> Prix brut du sejour individuel : {{ simulation.infoSejour.getMontantMBI }}
                     <br/> {% if  simulation.quotientFamilial  < 500 %}
-                                <p> Reduction sur Quotient Familial 10% : {{ simulation.reducQuotientFamilial }} € </p>
+                                <p> Reduction sur Quotient Familial 10% : - {{ simulation.reducQuotientFamilial }} € </p>
                           {% else %}
                                 <p> Aucune Reduction sur Quotient Familial </p>
                           {% endif %}
 
-                    <br/> {% if simulation.nombreEnfant == 2 %}
-                                <p> Reduction famille de 2 enfants 20% : {{ simulation.reducNombreEnfant }} € </p>
+                        {% if simulation.nombreEnfant == 2 %}
+                                <p> Reduction famille de 2 enfants 20% : - {{ simulation.reducNombreEnfant }} € </p>
                           {% elseif simulation.nombreEnfant >= 3 %}
-                                 <p> Reduction famille de {{ simulation.nombreEnfant }} enfants et plus 40% : {{ simulation.reducNombreEnfant }} € </p>
+                                 <p> Reduction famille de {{ simulation.nombreEnfant }} enfants et plus 40% : - {{ simulation.reducNombreEnfant }} € </p>
                           {% else %}
                                  <p> Aucune Reduction Famille </p>
-                          {% endif %} </p>
+                          {% endif %}
 
-                    <p> Sous Total : {{ simulation.sousTotal }} € </p>
+                    <br><p> Sous Total : {{ simulation.sousTotal }} € </p><br>
 
 
                     <p> {% if simulation.nombreEnfantPartant > 1 %}
-                        <p> Reduction depart de plusieurs enfants 10% : {{ simulation.reducDepartPlsEnfant }} € </p>
+                        <p> Reduction depart de plusieurs enfants 10% : - {{ simulation.reducDepartPlsEnfant }} € </p>
                         {% else %}
-                        <p> Pas d'enfants partant </p>
+                        <p> Reduction depart de plusieurs enfants 10% : {{ simulation.reducDepartPlsEnfant }} </p>
                         {% endif %} </p>
 
                     <p> Prix après reduction : {{ simulation.prixApresReduction }} € </p>
 
-                    <p><strong> Net a payer apres plafonnement : {{ simulation.netAPayer }} € </strong></p>
+                    <br><p><strong> Net a payer apres plafonnement : {{ simulation.netAPayer }} € </strong></p>
 
 
+                    <br><br>
                     {% if simulation.nombreEnfantPartant > 1 %}
-                        <p> Remarque : vus devrez verser au total {{ simulation.netAPayer }} * {{ simulation.nombreEnfantPartant }} = {{ simulation.totalDepartMultiple }}</p>
+                        <p> Remarque : vous devrez verser au total {{ simulation.netAPayer }} * {{ simulation.nombreEnfantPartant }} = {{ simulation.totalDepartMultiple }}</p>
                     {% endif %}
 
                 </div>

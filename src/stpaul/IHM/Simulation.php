@@ -239,7 +239,65 @@ class Simulation {
         $this->nombreEnfantPartant = $nombreEnfantPartant;
     }
 
+    public function calculReducEnfant(){
+        if($this->getNombreEnfant() == 2){
+            $this->setReducNombreEnfant($this->getInfoSejour()->getMontantMBI()*0.2);
+        } else if ($this->getNombreEnfant() >= 3){
+            $this->setReducNombreEnfant($this->getInfoSejour()->getMontantMBI()*0.4);
+        } else {
+            $this->setReducNombreEnfant(0);
+        }
+    }
 
+    public function calculPrixApresReduction(){
+        $this->setPrixApresReduction($this->getSousTotal()-$this->getReducDepartPlsEnfant());
+    }
 
+    public function calculReducQuotientFamilial()
+    {
+       if ($this->getQuotientFamilial() < 500){
+           $this->setReducQuotientFamilial(0.1*$this->getInfoSejour()->getMontantMBI());
+       } else {
+           $this->setReducQuotientFamilial(0);
+       }
+    }
+
+    public function calculSousTotal()
+    {
+       $this->setSousTotal($this->getInfoSejour()->getMontantMBI() - ($this->getReducQuotientFamilial() + $this->getReducNombreEnfant()));
+    }
+
+    public function calculDepartPlsEnfants()
+    {
+        if($this->getNombreEnfantPartant() > 1 ) {
+            $this->setReducDepartPlsEnfant(0.1*$this->getSousTotal());
+        } else {
+            $this->setReducDepartPlsEnfant(0);
+        }
+
+    }
+
+    public function calculNetAPayer ()
+    {
+        if($this->getPrixApresReduction() > 100 ){
+            $this->setNetAPayer(100);
+        } else {
+            $this->setNetAPayer($this->getPrixApresReduction());
+        }
+    }
+
+    public function calculTotalDepartMultiple(){
+        $this->setTotalDepartMultiple($this->getNombreEnfantPartant()*$this->getNetAPayer());
+    }
+
+    public function calculTotal(){
+        $this->calculReducQuotientFamilial();
+        $this->calculReducEnfant();
+        $this->calculSousTotal();
+        $this->calculDepartPlsEnfants();
+        $this->calculPrixApresReduction();
+        $this->calculNetAPayer();
+        $this->calculTotalDepartMultiple();
+    }
 
 }
